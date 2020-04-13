@@ -23,11 +23,11 @@
 
 def estimator(data):
 
-    currentlyInfected = float(int(data["reportedCases"] * 10))
-    currentlyInfected_severe = float(int(data["reportedCases"] * 50))
+    currentlyInfected = data["reportedCases"] * 10
+    currentlyInfected_severe = data["reportedCases"] * 50
 
-    infectionsByRequestedTime = currentlyInfected * 512
-    infectionsByRequestedTime_severe = currentlyInfected_severe * 512
+    infectionsByRequestedTime = (currentlyInfected * 512) / 2
+    infectionsByRequestedTime_severe = (currentlyInfected_severe * 512) / 2
 
     data = {
         "data": data,
