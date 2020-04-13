@@ -1,17 +1,17 @@
 
 
 # sample_input_data = {
-#     region: {
-#         name: "Africa",
-#         avgAge: 19.7,
-#         avgDailyIncomeInUSD: 5,
-#         avgDailyIncomePopulation: 0.71
+#     "region": {
+#         "name": "Africa",
+#         "avgAge": 19.7,
+#         "avgDailyIncomeInUSD": 4,
+#         "avgDailyIncomePopulation": 0.73
 #     },
-#     periodType: "days",
-#     timeToElapse: 58,
-#     reportedCases: 674,
-#     population: 66622705,
-#     totalHospitalBeds: 1380614
+#     "periodType": "days",
+#     "timeToElapse": 38,
+#     "reportedCases": 2747,
+#     "population": 92931687,
+#     "totalHospitalBeds": 678874
 # }
 
 # sample_output_data = {
@@ -26,8 +26,10 @@ def estimator(data):
     currentlyInfected = data["reportedCases"] * 10
     currentlyInfected_severe = data["reportedCases"] * 50
 
-    infectionsByRequestedTime = currentlyInfected * 1024
-    infectionsByRequestedTime_severe = currentlyInfected_severe * 1024
+    infectionsByRequestedTime = currentlyInfected * \
+        (2 ** (data["timeToElapse"]//3))
+    infectionsByRequestedTime_severe = currentlyInfected_severe * \
+        (2 ** (data["timeToElapse"]//3))
 
     data = {
         "data": data,
@@ -42,3 +44,6 @@ def estimator(data):
     }
 
     return data
+
+
+# print(estimator(sample_input_data))
