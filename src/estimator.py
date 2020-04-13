@@ -15,9 +15,9 @@
 # }
 
 # sample_output_data = {
-#     data: {}, 
-#     impact: {}, 
-#     severeImpact: {} 
+#     data: {},
+#     impact: {},
+#     severeImpact: {}
 # }
 
 
@@ -26,19 +26,19 @@ def estimator(data):
     currentlyInfected = data["reportedCases"] * 10
     currentlyInfected_severe = data["reportedCases"] * 50
 
-	infectionsByRequestedTime = currentlyInfected * 512
-	infectionsByRequestedTime_severe = currentlyInfected_severe * 512
+    infectionsByRequestedTime = currentlyInfected * 512
+    infectionsByRequestedTime_severe = currentlyInfected_severe * 512
 
-	data = {
-		"data": data,
-		"impact": {
-			"currentlyInfected": currentlyInfected,
-			"infectionsByRequestedTime": infectionsByRequestedTime,
-		},
-		"severeImpact": {
-			"currentlyInfected": currentlyInfected_severe,
-			"infectionsByRequestedTime": infectionsByRequestedTime_severe,
-		}
-	}
+    data = {
+        "data": data,
+        "impact": {
+            "currentlyInfected": currentlyInfected,
+            "infectionsByRequestedTime": infectionsByRequestedTime,
+        },
+        "severeImpact": {
+            "currentlyInfected": currentlyInfected_severe,
+            "infectionsByRequestedTime": infectionsByRequestedTime_severe,
+        }
+    }
 
     return data
